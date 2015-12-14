@@ -1,0 +1,274 @@
+@import url(/css/like.css);
+
+html, body {
+  font-family: Andada;
+  font-size: 16px;
+  background: hsl(0, 0%, 96%);
+  margin: 0;
+}
+
+.inner {
+  margin: 30px;
+}
+
+a {
+  color: hsl(2, 90%, 42%);
+  text-decoration: none;
+}
+
+a:hover {
+  color: hsl(0, 0%, 60%);
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.twitter-share-button {
+  float: right;
+  margin-top: 5px;
+}
+
+header {
+  background: white;
+  border-top: 5px solid hsl(0, 0%, 13%);
+  border-bottom: 2px solid hsl(0, 0%, 87%);
+  padding: 0 30px;
+}
+
+header h1 {
+  font-weight: 400;
+}
+
+header h1 a {
+  color: black;
+  text-decoration: none;
+}
+
+header .nav {
+  float: right;
+  line-height: 40px;
+  font-size: 24px;
+  list-style: none;
+  margin: 0;
+}
+
+header .nav a {
+  color: hsl(0, 0%, 0%)
+}
+
+.text-center {
+  text-align: center;
+}
+
+.compare {
+  text-align: center;
+  margin: 120px 0 0;
+}
+
+.compare-header {
+  font-weight: 400;
+  color: hsl(2, 90%, 42%);
+}
+
+.compare-input {
+  font-family: Andada;
+  font-size: 16px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid hsl(0, 0%, 87%);
+  padding: 15px 5px 10px;
+  margin: 15px 0;
+  outline: none;
+  text-align: center;
+}
+
+.compare-input:focus {
+  border-bottom-color: hsl(0, 0%, 70%);
+}
+
+.compare-vs {
+  margin: 15px;
+}
+
+.compare-button-container {
+  margin-top: 30px;
+}
+
+.comparison-header {
+  font-weight: 400;
+  border-top: 4px solid hsl(0, 0%, 87%);
+  border-bottom: 2px solid hsl(0, 0%, 87%);
+  padding: 15px;
+  color: hsl(0, 0%, 46%);
+}
+
+.comparison-header .package {
+  color: hsl(2, 90%, 42%)
+}
+
+.packages {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.comparison-package {
+  background: white;
+  -webkit-flex: 1 0 0;
+   flex: 1 0 0;
+  border: 1px solid hsl(0, 0%, 87%);
+  box-shadow: 0 0 0 3px hsl(0, 0%, 94%);
+}
+
+.comparison-package:first-of-type {
+  margin-right: 50px;
+}
+
+.comparison-package-header {
+  padding: 15px;
+  margin: 0;
+  border-bottom: 2px solid hsl(0, 0%, 87%);
+}
+
+.comparison-package-name {
+  margin-right: 10px;
+}
+
+.comparison-package-version {
+  font-weight: 400;
+  color: hsl(0, 0%, 46%);
+  margin-right: 10px;
+}
+
+.comparison-package-github {
+  margin-right: 10px;
+}
+
+.comparison-package-github a {
+  color: hsl(0,0%,70%);
+}
+
+.comparison-package-count {
+  float: right;
+  color: hsl(0, 0%, 87%);
+}
+
+.comparison-package-dependencies {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.comparison-package-dependencies .dependency {
+  padding: 15px;
+  border-bottom: 1px solid hsl(0, 0%, 96%);
+}
+
+.comparison-package-dependencies .dependency:after {
+  display: block;
+  content: " ";
+  clear: both;
+}
+
+.comparison-package-dependencies .empty {
+  padding: 15px;
+  border-bottom: 1px solid hsl(0, 0%, 96%);
+  color: hsl(0, 0%, 46%);
+}
+
+.dependency-name {
+  margin-right: 10px;
+}
+
+.dependency-version {
+  color: hsl(0, 0%, 46%);
+}
+
+.accordion-toggle {
+  cursor: pointer;
+  padding: 15px;
+  margin: 0;
+  color: hsl(0, 0%, 46%);
+  background: hsl(0,0%,97%);
+  border-bottom: 1px solid hsl(0, 0%, 87%);
+}
+
+.accordion-toggle.active,
+.accordion-toggle.active .accordion-count {
+  color: hsl(0, 0%, 0%);
+  background: white;
+}
+
+.accordion-title {
+  margin-right: 10px;
+}
+
+.accordion-count {
+  float: right;
+  font-weight: 400;
+  color: hsl(0, 0%, 60%);
+}
+
+.accordion-badge {
+  float: right;
+  padding-right: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.accordion-badge a {
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.accordion-badge .badge-info {
+  color: hsl(0, 0%, 87%);
+}
+
+.accordion-content.default {
+  display: block;
+}
+
+.accordion-content .comparison-package-dependencies li:last-of-type {
+  border-bottom: 1px solid hsl(0, 0%, 87%);
+}
+
+.accordion-content:last-of-type li:last-of-type {
+  border-bottom: none;
+}
+
+.about-header {
+  font-weight: 400;
+  border-top: 4px solid hsl(0, 0%, 87%);
+  border-bottom: 2px solid hsl(0, 0%, 87%);
+  padding: 15px;
+  color: hsl(0, 0%, 46%);@import url();
+}
+
+/** david status */
+
+.status-unknown,
+.status-none {
+  color: hsl(0, 0%, 65%);
+}
+
+.status-uptodate {
+  color: #3cba00;
+}
+
+.status-notsouptodate {
+  color: #fbaf00;
+}
+
+.status-outofdate {
+  color: #e14a28;
+}
+
+.status-insecure {
+  color: #c30000;
+}
