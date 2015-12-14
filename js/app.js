@@ -2,6 +2,7 @@ var app = {
   name: 'Sarah',
   repo: 'nijikokun/sarah',
   tagline: 'Compare Node.js Package Dependencies',
+  loaded: false,
   param: m.route.param,
   routes: {},
   components: {},
@@ -19,7 +20,16 @@ app.title = function (title) {
   window.document.title = title + ' - ' + app.name
 }
 
-app.route = function (route, obj) {
+app.route = function (route, name, obj) {
+  var view = obj.view
+  obj.view = function (ctrl) {
+    if (!app.loaded) {
+      app.loaded = true
+    }
+
+    return view(ctrl)
+  }
+
   app.routes[route] = obj
 }
 
@@ -386,12 +396,13 @@ app.components.accordionItem = function (options) {
 }
 
 // Routes
-app.route('/', {
+app.route('/', 'homepage', {
   controller: function() {
     return {}
   },
 
   view: function (ctrl) {
+    analytics.page('Homepage')
     app.title(app.tagline)
 
     return m("div.homepage", [
@@ -401,17 +412,16 @@ app.route('/', {
   }
 })
 
-app.route('/compare/:one/:two', {
+app.route('/compare/:one/:two', 'compare', {
   controller: function () {
     var ctrl = this
-
     this.one = app.parseRepo(app.param('one'))
     this.two = app.parseRepo(app.param('two'))
-
     this.error = false
 
     app.fetch(this.one, function (err, data) {
       if (err) {
+        window.analytics.track('comparison.error', { package: ctrl.one.repo, error: err })
         ctrl.error = ctrl.one.repo + ' is missing package.json'
         return m.redraw()
       }
@@ -422,6 +432,7 @@ app.route('/compare/:one/:two', {
 
     app.fetch(this.two, function (err, data) {
       if (err) {
+        window.analytics.track('comparison.error', { package: ctrl.two.repo, error: err })
         ctrl.error = ctrl.two.repo + ' is missing package.json'
         return m.redraw()
       }
@@ -433,21 +444,24 @@ app.route('/compare/:one/:two', {
 
   view: function (ctrl) {
     var children = []
+    var packages = [
+      ctrl.one,
+      ctrl.two
+    ]
 
     if (ctrl.error) {
+      analytics.page('Comparison Error')
       app.title('Error - Comparison')
       children.push(m('h2.comparison-header', 'Error during comparison'))
       children.push(m('p', ctrl.error))
     } else if (!ctrl.one.data || !ctrl.two.data) {
+      analytics.page('Comparison Loading')
       children.push(m('p.text-center', 'Loading packages, and reticulating spines...'))
     } else {
+      analytics.page('Comparison Results')
       app.title([ctrl.one.data.name, 'vs', ctrl.two.data.name, '-', 'Comparison Results'].join(' '))
-      children.push(app.components.comparison({
-        packages: [
-          ctrl.one,
-          ctrl.two
-        ]
-      }))
+      window.analytics.track('comparison', { packages: packages })
+      children.push(app.components.comparison({ packages: packages }))
     }
 
     return m('div.comparison', [
