@@ -1,6 +1,6 @@
 # Sarah.
 
-<center>![Logo](/images/logo.svg)</center>
+<center><img src="http://sarahjs.org/images/logo.svg" height="200px" /></center>
 
 Stop using the wrong Node.js projects by comparing them side by side.
 
