@@ -69,7 +69,7 @@ header .nav a {
 
 .compare-header {
   font-weight: 400;
-  color: hsl(2, 90%, 42%);
+  color: black;
 }
 
 .compare-input {
@@ -77,11 +77,13 @@ header .nav a {
   font-size: 16px;
   background: none;
   border: none;
-  border-bottom: 2px solid hsl(0, 0%, 87%);
-  padding: 15px 5px 10px;
+  border-radius: 3px;
+  padding: 10px;
   margin: 15px 0;
   outline: none;
   text-align: center;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
 .compare-input:focus {

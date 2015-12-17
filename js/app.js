@@ -12,7 +12,10 @@ var app = {
 
 // Helpers
 app.init = function (location) {
-  m.route.mode = 'pathname'
+  if (window.location.hostname !== 'localhost') {
+    m.route.mode = 'pathname'
+  }
+
   m.route(location, '/', app.routes)
 }
 

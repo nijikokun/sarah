@@ -1,28 +1,25 @@
 .like-button {
   cursor: pointer;
-  border: 2px solid hsl(0, 0%, 87%);
   border-radius: 40px;
-  padding: .6rem 2rem;
-  color: #878787;
+  padding: .6rem 2rem .8rem;
+  color: black;
   font-weight: 400;
   font-size: 1rem;
   -webkit-transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: hsl(52, 100%, 53%);
 }
 .like-button.liked {
-  color: #ff6e6f;
-  border-color: currentColor;
   -webkit-filter: grayscale(0);
-          filter: grayscale(0);
+  filter: grayscale(0);
 }
 .like-button:hover {
-  border-color: currentColor;
+  background: hsl(51, 99%, 50%);
+  color: black;
 }
 
 .like-icon {
